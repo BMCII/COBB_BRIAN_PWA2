@@ -30,10 +30,10 @@ $(function() {
         .mousemove(function(e){
             var mousex = e.pageX + 10;                          //create variable to hold x position
             var mousey = e.pageY + 5;                           //create variable to hold y position
-            $('.toolTip').css({top:mousey, left:mousex});      //select toolTip ans change css
+            $('.toolTip').css({top:mousey, left:mousex});       //select toolTip ans change css
         });
 
-//==============================================End toolTip  =========================================================//
+//============================================= End toolTip  =========================================================//
 
 //================================================= modal ============================================================//
 
@@ -41,7 +41,7 @@ $(function() {
         event.preventDefault();
         $('#overlay')
             .fadeIn()
-            .find('#model')
+            .find('#modal')
             .fadeIn();
     });
 
@@ -52,6 +52,26 @@ $(function() {
             .find('#modal')
             .fadeOut();
     });
+
+//============================================= End modal ============================================================//
+
+//============================================== Tabbed Accordion ====================================================//
+
+    $('#tabs p').hide().eq(0).show();
+    $('#tabs p:not(:first)').hide();
+
+    $('#tabs-nav li').click(function(e){
+        e.preventDefault();
+        $('#tabs p').hide();
+
+        $('#tabs-nav .current').removeClass("current");
+        $(this).addClass('current');
+        var clicked = $(this).find('a:first').attr('href');
+
+        $('#tabs ' + clicked).fadeIn('fast');
+    }).eq(0).addClass('current');
+
+//========================================== End Tabbed Accordion ====================================================//
 
 }); // end private scope
 

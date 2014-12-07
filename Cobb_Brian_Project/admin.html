@@ -18,8 +18,30 @@
 </head>
 <body>
     <div id="wrapper">
-        <p>Welcome</p>
-        <input type="submit" value="sign out">
+
+        <header>
+
+            <div class="userid">Welcome User:</div>
+            <div class="logoutbox">
+                <button class="dashboard">Dashboard</button>
+                <input name="logOut" type="button" id="logOut">
+            </div>
+
+        </header>
+
+        <div>
+            <ul id="tabs-nav">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#tasks">Tasks</a></li>
+                <li><a href="#users">Users</a></li>
+            </ul>
+
+            <div id="tabs">
+                <P id="projects">First Tab<button class="projectsbtn">Projects</button></P>
+                <P id="tasks">Second Tab<button class="tasksbtn">Projects</button></P>
+                <P id="users">Third Tab<button class="usersbtn">Projects</button></P>
+            </div>
+        </div>
     </div>
 
     <!-- jquery -->

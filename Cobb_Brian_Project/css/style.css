@@ -1,3 +1,5 @@
+
+/*======================= main styles ================================================================================*/
 body{
     background:#A7A37E;
     margin:0;
@@ -13,6 +15,7 @@ h1{
     margin:0;
 }
 
+/*======================== Tool Tip ==================================================================================*/
 .toolTip{
     display:none;
     position:absolute;
@@ -24,6 +27,9 @@ h1{
     font: 12px Arial;
 }
 
+/*=====================end Tool Tip ==================================================================================*/
+
+/*======================== Modal =====================================================================================*/
 #overlay{
     width: 100%;
     height:100%;
@@ -43,8 +49,8 @@ h1{
     overflow: hidden;
     position: relative;
     top: 50%;
-    margin-top: -200px;
-    margin-left: -200px;
+    margin-top: 0;
+    margin-left: 500px;
     z-index: 1001;
     display: none;
 }
@@ -56,7 +62,7 @@ h1{
 }
 
 #modal p{
-    margin: 15px;
+    margin: 15px
 }
 
 #modal .close{
@@ -77,10 +83,13 @@ form{
 
 form input{
     padding: 10px;
+    margin: 10px;
+    border-radius: 2px;
 }
 
 header{
     width: 960px;
+    overflow: auto;
 }
 
 .userid{
@@ -104,4 +113,29 @@ input[type=radio]{
 
 input[type=radio]:checked{
     border: 2px solid #f00;
+}
+
+/*=====================End Modal =====================================================================================*/
+
+/*===================== Tabs =========================================================================================*/
+
+#tabs{
+    background-color: #999;
+    width: 600px;
+    height: 150px;
+    padding: 20px;
+}
+
+#tabs-nav{
+    width: 600px;
+    height: 75px;
+    padding: 20px;
+    background-color: #999;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+#tabs-nav li{
+    display: inline;
+
 }
