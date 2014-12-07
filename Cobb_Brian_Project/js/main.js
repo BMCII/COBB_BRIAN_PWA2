@@ -34,7 +34,25 @@ $(function() {
         });
 
 //==============================================End toolTip  =========================================================//
-	
+
+//================================================= modal ============================================================//
+
+    $('.modalClick').on('click', function(event){
+        event.preventDefault();
+        $('#overlay')
+            .fadeIn()
+            .find('#model')
+            .fadeIn();
+    });
+
+    $('.close').on('click', function(event){
+        event.preventDefault();
+        $('#overlay')
+            .fadeOut()
+            .find('#modal')
+            .fadeOut();
+    });
+
 }); // end private scope
 
 
