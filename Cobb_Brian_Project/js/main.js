@@ -5,6 +5,15 @@
 //alert("hello");
 $(function() {
 
+//=========================================== Drop down login  =======================================================//
+
+    $(document).ready(function() {
+        $('#login p').click(function(){
+            $('#login-form').slideToggle(300);
+            $(this).toggleClass('close');
+        });
+    });
+
 //================================================= toolTip  =========================================================//
 
     $('.masterToolTip').hover(function(){
@@ -21,7 +30,7 @@ $(function() {
         //================ off hover code =================//
 
     },function() {
-        $(this).attr('title', $(this).data('tipText'));         //add attribute title with "tipText data"
+        $(this).attr('title', $(this).data('tipText'));          //add attribute title with "tipText data"
         $('.toolTip').remove();                                  //remove tooTip
     })
 
@@ -58,7 +67,7 @@ $(function() {
 //============================================== Tabbed Accordion ====================================================//
 
     $('#tabs p').hide().eq(0).show();
-    $('#tabs p:not(:first)').hide();
+    //$('#tabs p:not(:first)').hide();
 
     $('#tabs-nav li').click(function(e){
         e.preventDefault();

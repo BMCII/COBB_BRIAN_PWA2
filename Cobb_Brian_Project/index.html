@@ -1,14 +1,5 @@
 <!doctype html>  
 
-<!--
-	This is the main index of the application
-	
-	All your script tags should be at the bottom of this file
-	
-	The only html element in the body is the container div
-	Your code should load your page templates into the container
--->
-
 <html lang="en">
 <head>
 
@@ -33,34 +24,40 @@
     <div id="wrapper">
 
         <header>
-
+            <h1>Project Status Tracker</h1>
             <div class="userid">Welcome User:</div>
             <div class="logoutbox">
                 <button class="dashboard">Dashboard</button>
-                <input name="logOut" type="button" id="logOut">
+                <input name="logOut" type="button" id="logOut" value="Log out">
             </div>
 
         </header>
 
-        <h1>Project Status Tracker</h1>
-        <a href="register.html"><button>Join Now!</button></a>
+
+        <a href="register.html"><button id="join">Join Now!</button></a>
         <ul>
             <li>Project Status</li>
             <li>Client info</li>
             <li>Billing and Payment status</li>
         </ul>
 
-        <form>
-            <fieldset>
-                <input type="text" placeholder="username">
-                <input type="password" placeholder="password">
-            </fieldset>
-            <fieldset>
-                <input type="submit" value="login">
-                <a href="register.html"><button>Register</button></a>
-            </fieldset>
-        </form>
+        <div class="container">
+            <nav id="login">
+                <p>login</p>
+                <div id="login-form">
+                    <form>
+                        <label for="name">Username:</label>
+                        <input type="text" id="name" />
 
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" />
+
+                        <input type="submit" value="Log In" />
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <a href="register.html"><button>Register</button></a>
     </div>
 
         <!-- jquery -->
