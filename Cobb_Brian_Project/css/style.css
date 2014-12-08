@@ -1,8 +1,17 @@
 
 /*======================= main styles ================================================================================*/
 body{
-    background:#A7A37E;
+
     margin:0;
+    background: #fcf8ce; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #fcf8ce 2%, #999865 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(2%,#fcf8ce), color-stop(100%,#999865)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  #fcf8ce 2%,#999865 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  #fcf8ce 2%,#999865 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  #fcf8ce 2%,#999865 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center,  #fcf8ce 2%,#999865 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf8ce', endColorstr='#999865',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
 }
 
 #wrapper{
@@ -11,7 +20,9 @@ body{
     margin:150px auto;
     border: 2px #000 solid;
     border-radius: 15px;
-    box-shadow: 0px 5px 3px #000;
+    box-shadow: 0px 5px 3px #363636;
+    padding:15px;
+
 }
 
 h1{
@@ -42,8 +53,9 @@ input[type="submit"] {
     font-size: 20px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
-
+    border: 1px solid black;
     display: block;
+
 }
 
 input[type="submit"]:hover{
@@ -54,6 +66,15 @@ input[type="submit"]:hover{
     background-image: -o-linear-gradient(top, #056380, #012e2f);
     background-image: linear-gradient(to bottom, #056380, #012e2f);
     text-decoration: none;
+    box-shadow: 0px 3px 5px #000;
+}
+
+input[type="submit"]:active{
+    box-shadow: none;
+}
+
+textarea:focus, input:focus{
+    outline: 0;
 }
 
 /*======================= index styles ===============================================================================*/
@@ -77,6 +98,7 @@ input[type="submit"]:hover{
     font-size: 20px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
+    border: 1px solid black;
     margin: 0 auto;
     display: block;
 }
@@ -89,6 +111,11 @@ input[type="submit"]:hover{
     background-image: -o-linear-gradient(top, #056380, #012e2f);
     background-image: linear-gradient(to bottom, #056380, #012e2f);
     text-decoration: none;
+    box-shadow: 0px 3px 5px #000;
+}
+
+#join:active{
+    box-shadow: none;
 }
 
 /*======================== Tool Tip ==================================================================================*/
