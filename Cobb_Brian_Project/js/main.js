@@ -21,7 +21,7 @@ $(function() {
         //================== hover code ===================//
 
         var title = $(this).attr('title');                      //declare var title to hold title attribute
-        $(this).data('tipText', title).removeAttr('title');      //save var title as data and remove attribute
+        $(this).data('tipText', title).removeAttr('title');     //save var title as data and remove attribute
         $('<p class = "toolTip"></p>')                          //create HTML <p> element
             .text(title)                                        //add var title as text in <p> element
             .appendTo('body')                                   //add <p> element to body
@@ -37,9 +37,9 @@ $(function() {
         //=============== toolTip position ================//
 
         .mousemove(function (e) {
-            var mousex = e.pageX + 10;                          //create variable to hold x position
-            var mousey = e.pageY + 5;                           //create variable to hold y position
-            $('.toolTip').css({top: mousey, left: mousex});       //select toolTip ans change css
+            var mousex = e.pageX + 10;                           //create variable to hold x position
+            var mousey = e.pageY + 5;                            //create variable to hold y position
+            $('.toolTip').css({top: mousey, left: mousex});      //select toolTip ans change css
         });
 
 //============================================= End toolTip  =========================================================//
@@ -47,11 +47,11 @@ $(function() {
 //================================================= modal ============================================================//
 
     $('.modalClick').on('click', function (event) {               //select modalClick and run function on click
-        event.preventDefault();                                 //
-        $('#overlay')
-            .fadeIn()
-            .find('#modal')
-            .fadeIn();
+        event.preventDefault();                                   //prevent page from reloading
+        $('#overlay')                                             //select id overlay
+            .fadeIn()                                             //fade overlay in
+            .find('#modal')                                       //find id modal
+            .fadeIn();                                            //fade modal in
     });
 
     $('.close').on('click', function (event) {
