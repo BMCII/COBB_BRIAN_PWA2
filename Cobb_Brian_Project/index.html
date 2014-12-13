@@ -24,18 +24,9 @@
     <div id="wrapper">
 
         <header>
-            <ul id="menu-bar">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Register</a></li>
-            </ul>
+
             <h1>Project Status Tracker</h1>
-            <div class="userid">Welcome User:</div>
-            <div class="logoutbox">
-                <button class="dashboard buttonstyle">Dashboard</button>
-                <input name="logOut" type="button" id="logOut" value="Log out" class="buttonstyle">
-            </div>
+
 
         </header>
 
@@ -52,17 +43,21 @@
                 <p>login</p>
                 <div id="login-form">
                     <form>
-                        <label for="name">Username:</label>
-                        <input type="text" id="name"/>
+                        <label for="user">Username:</label>
+                        <input name="username" type="text" id="user" class="masterToolTip"
+                               title="please enter first name"/>
 
-                        <label for="password">Password:</label>
-                        <input type="password" id="password"/>
+                        <label for="pass">Password:</label>
+                        <input name="password" type="password" id="pass" class="masterToolTip"
+                               title="please enter password"/>
 
-                        <input type="submit" value="Log In" class="buttonstyle"/>
+                        <input name="signinButton" id="signinButton" type="button"
+                               value="Log In" class="buttonstyle masterToolTip" title="push hard"/>
                     </form>
                 </div>
             </nav>
         </div>
+
         <a href="register.html"><button id="register" class="buttonstyle">Register</button></a>
         <div class="clear"></div>
     </div>
@@ -70,6 +65,8 @@
         <!-- jquery -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript"
+                src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
         <!-- plugins -->
 
 
