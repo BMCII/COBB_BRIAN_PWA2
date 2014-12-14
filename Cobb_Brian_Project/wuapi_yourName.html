@@ -1,151 +1,303 @@
 <!DOCTYPE html>
 <!--Your Name 
-	Date
-    Month
--->
+   Date
+      Month
+   -->
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Weather API</title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width">
-<style>
-body{
-	font-family: Arial, Helvetica, sans-serif;
-	background-color:#9ED6FF;
-}
-
-#container{
-	width: 90%;
-	margin: 0 auto;
-	height: 600px;
-}
-
-.left {
-	width: 35%;
-	padding: 5%;
-	float: left;
-}
-
-.right {
-	width: 45%;
-	padding: 2%;
-	float: right;
-}
-
-h1 {
-	text-align: center;
-	padding: 2%;
-}
-
-</style>
-
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Weather API</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color:#9ED6FF;
+        }
+        #container{
+            width: 90%;
+            margin: 0 auto;
+            height: 600px;
+        }
+        .left {
+            width: 35%;
+            padding: 5%;
+            float: left;
+        }
+        .right {
+            width: 45%;
+            padding: 2%;
+            float: right;
+        }
+        h1 {
+            text-align: center;
+            padding: 2%;
+        }
+        table{
+            border: 1px solid #000000;
+        }
+        tr{
+            background: yellow;
+        }
+        th{
+            background: red;
+        }
+    </style>
 </head>
 <body>
-
 <div id="container">
-<header> 
-	<h1>Weather Underground API</h1>
-</header>
-
-<div class="left">
-<h2>Your Three Day Forecast Summary</h2>
-<p class="three">
-<!--1. Display the three day Forecast Summary here-->
-</p>
-<h2>Your 10-day forecast summary</h2>
-<p class="tenDay">
-<!--2. Display the 10-day forecast summary feature here-->
-
-</p>
-</div><!--Closes Left-->
-
-
-
-<div class="right">
-<h2>Your Hourly 1-day forecast</h2>
-<p class="hourFore">
-<!--3. Display the Hourly 1-day forecast feature here-->
-</p>
-
-<h2>Your Astronomy Summary</h2>
-<p class="astro">
-<!--4. Display the WU Astronomy feature here-->
-</p>
-
-<h2>Your Almanac for today</h2>
-<p class="almanac">
-<!--5. Display the Almanac for today feature here-->
-</p>
-</div><!--Closes Right-->
-</div><!--Closes Container-->
-
-
+    <header>
+        <h1>Weather Underground API</h1>
+    </header>
+    <div class="left">
+        <h2>Your Three Day Forecast Summary</h2>
+        <p class="three">
+            <!--1. Display the three day Forecast Summary here-->
+        </p>
+        <h2>Your 10-day forecast summary</h2>
+        <p class="tenDay">
+            <!--2. Display the 10-day forecast summary feature here-->
+        </p>
+    </div>
+    <!--Closes Left-->
+    <div class="right">
+        <h2>Your Hourly 1-day forecast</h2>
+        <p class="hourFore">
+            <!--3. Display the Hourly 1-day forecast feature here-->
+        </p>
+        <h2>Your Astronomy Summary</h2>
+        <p class="astro">
+            <!--4. Display the WU Astronomy feature here-->
+        </p>
+        <h2>Your Almanac for today</h2>
+        <p class="almanac">
+            <!--5. Display the Almanac for today feature here-->
+        </p>
+    </div>
+    <!--Closes Right-->
+</div>
+<!--Closes Container-->
 <!--Link to jQuery Library-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
-$(document).ready(function($){
-	
-<!--This is an example of how to embed Geolookup. Use your own API key and city location-->	
-	$.ajax({ 
-		url : "http://api.wunderground.com/api/bd6ac7c0c5003c4b/geolookup/conditions/q/FL/Orlando.json",
-		dataType : "jsonp", 
-          success : function(parsed_json) {
-              //console.log(parsed_json);
-              var location = parsed_json['location']['city']; 
-              var temp_f = parsed_json['current_observation']['temp_f'];
-                  $(".three").html("Current temperature in " + location + " is: " + temp_f+"ºF");
-          } 
-	});
+    $(document).ready(function($){
 
-    $.ajax({
-        url : "http://api.wunderground.com/api/bd6ac7c0c5003c4b/geolookup/forecast10day/q/FL/Orlando.json",
-        dataType : "jsonp",
-        success : function(parsed_json) {
-            console.log(parsed_json);
-            var location = parsed_json['location']['city'];
-//            var temp_f = parsed_json['high']['low'];
-              $(".tenDay").html(location);
-        }
-    });
+        <!--This is an example of how to embed Geolookup. Use your own API key and city location-->
+        $.ajax({
+            url : "http://api.wunderground.com/api/bd6ac7c0c5003c4b/geolookup/forecast/q/FL/Orlando.json",
+            dataType : "jsonp",
+            success : function(parsed_json) {
+                //console.log(parsed_json);
+                var day0 = parsed_json['forecast']['txt_forecast']['forecastday'][0]['title'];
+                var txt0 = parsed_json['forecast']['txt_forecast']['forecastday'][0]['fcttext'];
+
+                var day1 = parsed_json['forecast']['txt_forecast']['forecastday'][1]['title'];
+                var txt1 = parsed_json['forecast']['txt_forecast']['forecastday'][1]['fcttext'];
+
+                var day2 = parsed_json['forecast']['txt_forecast']['forecastday'][2]['title'];
+                var txt2 = parsed_json['forecast']['txt_forecast']['forecastday'][2]['fcttext'];
+
+                $(".three").html('<table>' +
+                        '<tr>' +
+                        '<th>' + 'day' + '</th>' +
+                        '<th>' + 'conditions' + '</th>' +
+                        '</tr>'+
+                        '<tr>' +
+                        '<td>' + day0 + '</td>' +
+                        '<td>' + txt0 + '</td>' +
+                        '</tr>'+
+                        '<tr>' +
+                        '<td>' + day1 + '</td>' +
+                        '<td>' + txt1 + '</td>' +
+                        '</tr>'+
+                        '<tr>' +
+                        '<td>' + day2 + '</td>' +
+                        '<td>' + txt2 + '</td>' +
+                        '</tr>'+
+                        '</table>');
+            }
+        });
+
+        $.ajax({
+            url : "http://api.wunderground.com/api/bd6ac7c0c5003c4b/geolookup/forecast10day/q/FL/Orlando.json",
+            dataType : "jsonp",
+            success : function(parsed_json) {
+                console.log(parsed_json);
+
+                var day0 = parsed_json['forecast']['txt_forecast']['forecastday'][0]['title'];
+                var txt0 = parsed_json['forecast']['txt_forecast']['forecastday'][0]['fcttext'];
+
+                var day1 = parsed_json['forecast']['txt_forecast']['forecastday'][1]['title'];
+                var txt1 = parsed_json['forecast']['txt_forecast']['forecastday'][1]['fcttext'];
+
+                var day2 = parsed_json['forecast']['txt_forecast']['forecastday'][2]['title'];
+                var txt2 = parsed_json['forecast']['txt_forecast']['forecastday'][2]['fcttext'];
+
+                var day3 = parsed_json['forecast']['txt_forecast']['forecastday'][3]['title'];
+                var txt3 = parsed_json['forecast']['txt_forecast']['forecastday'][3]['fcttext'];
+
+                var day4 = parsed_json['forecast']['txt_forecast']['forecastday'][4]['title'];
+                var txt4 = parsed_json['forecast']['txt_forecast']['forecastday'][4]['fcttext'];
+
+                var day5 = parsed_json['forecast']['txt_forecast']['forecastday'][5]['title'];
+                var txt5 = parsed_json['forecast']['txt_forecast']['forecastday'][5]['fcttext'];
+
+                var day6 = parsed_json['forecast']['txt_forecast']['forecastday'][6]['title'];
+                var txt6 = parsed_json['forecast']['txt_forecast']['forecastday'][6]['fcttext'];
+
+                var day7 = parsed_json['forecast']['txt_forecast']['forecastday'][7]['title'];
+                var txt7 = parsed_json['forecast']['txt_forecast']['forecastday'][7]['fcttext'];
+
+                var day8 = parsed_json['forecast']['txt_forecast']['forecastday'][8]['title'];
+                var txt8 = parsed_json['forecast']['txt_forecast']['forecastday'][8]['fcttext'];
+
+                var day9 = parsed_json['forecast']['txt_forecast']['forecastday'][9]['title'];
+                var txt9 = parsed_json['forecast']['txt_forecast']['forecastday'][9]['fcttext'];
+
+                var day10 = parsed_json['forecast']['txt_forecast']['forecastday'][10]['title'];
+                var txt10 = parsed_json['forecast']['txt_forecast']['forecastday'][10]['fcttext'];
+
+                var day11 = parsed_json['forecast']['txt_forecast']['forecastday'][11]['title'];
+                var txt11 = parsed_json['forecast']['txt_forecast']['forecastday'][11]['fcttext'];
+
+                var day12 = parsed_json['forecast']['txt_forecast']['forecastday'][12]['title'];
+                var txt12 = parsed_json['forecast']['txt_forecast']['forecastday'][12]['fcttext'];
+
+                var day13 = parsed_json['forecast']['txt_forecast']['forecastday'][13]['title'];
+                var txt13 = parsed_json['forecast']['txt_forecast']['forecastday'][13]['fcttext'];
+
+                var day14 = parsed_json['forecast']['txt_forecast']['forecastday'][14]['title'];
+                var txt14 = parsed_json['forecast']['txt_forecast']['forecastday'][14]['fcttext'];
+
+                var day15 = parsed_json['forecast']['txt_forecast']['forecastday'][15]['title'];
+                var txt15 = parsed_json['forecast']['txt_forecast']['forecastday'][15]['fcttext'];
+
+                var day16 = parsed_json['forecast']['txt_forecast']['forecastday'][16]['title'];
+                var txt16 = parsed_json['forecast']['txt_forecast']['forecastday'][16]['fcttext'];
+
+                var day17 = parsed_json['forecast']['txt_forecast']['forecastday'][17]['title'];
+                var txt17 = parsed_json['forecast']['txt_forecast']['forecastday'][17]['fcttext'];
+
+                var day18 = parsed_json['forecast']['txt_forecast']['forecastday'][18]['title'];
+                var txt18 = parsed_json['forecast']['txt_forecast']['forecastday'][18]['fcttext'];
+
+                var day19 = parsed_json['forecast']['txt_forecast']['forecastday'][19]['title'];
+                var txt19 = parsed_json['forecast']['txt_forecast']['forecastday'][19]['fcttext'];
+
+                $(".tenDay").html('<table>' +
+                '<tr>' +
+                '<th>' + 'day' + '</th>' +
+                '<th>' + 'conditions' + '</th>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day0 + '</td>' +
+                '<td>' + txt0 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day1 + '</td>' +
+                '<td>' + txt1 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day2 + '</td>' +
+                '<td>' + txt2 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day3 + '</td>' +
+                '<td>' + txt2 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day4 + '</td>' +
+                '<td>' + txt4 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day5 + '</td>' +
+                '<td>' + txt5 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day6 + '</td>' +
+                '<td>' + txt6 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day7 + '</td>' +
+                '<td>' + txt7 + '</td>' +
+                '<tr>' +
+                '<td>' + day8 + '</td>' +
+                '<td>' + txt8 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day9 + '</td>' +
+                '<td>' + txt9 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day10 + '</td>' +
+                '<td>' + txt10 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day11 + '</td>' +
+                '<td>' + txt11 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day12 + '</td>' +
+                '<td>' + txt12 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day13 + '</td>' +
+                '<td>' + txt13 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day14 + '</td>' +
+                '<td>' + txt14 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day15 + '</td>' +
+                '<td>' + txt15 + '</td>' +
+                '<tr>' +
+                '<td>' + day16 + '</td>' +
+                '<td>' + txt16 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day17 + '</td>' +
+                '<td>' + txt17 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day18 + '</td>' +
+                '<td>' + txt18 + '</td>' +
+                '</tr>'+
+                '<tr>' +
+                '<td>' + day19 + '</td>' +
+                '<td>' + txt19 + '</td>' +
+                '</tr>'+
+                '</table>');
+            }
+        });
 
 
-});  //Closes Doc Ready Function
-
-	
-<!--Use your own API key and city location-->
-<!--1.Embed the WU 3-day forecast summary feature.-->
-<!--Your Code Here-->
+    });  //Closes Doc Ready Function
 
 
-
-<!--2.Embed the WU 10-day forecast summary feature.-->	
-<!--Your Code Here-->
-	
-
-<!--3.Embed the WU Hourly 1-day forecast feature.-->	
-<!--Your Code Here-->
+    <!--Use your own API key and city location-->
+    <!--1.Embed the WU 3-day forecast summary feature.-->
+    <!--Your Code Here-->
 
 
 
-<!--4.Embed the WU Astronomy feature.-->	
-<!--Your Code Here-->
-	
+    <!--2.Embed the WU 10-day forecast summary feature.-->
+    <!--Your Code Here-->
 
-<!--5.Embed the WU Almanac for today feature.-->	
-<!--Your Code Here-->
+
+    <!--3.Embed the WU Hourly 1-day forecast feature.-->
+    <!--Your Code Here-->
+
+
+
+    <!--4.Embed the WU Astronomy feature.-->
+    <!--Your Code Here-->
+
+
+    <!--5.Embed the WU Almanac for today feature.-->
+    <!--Your Code Here-->
 
 </script>
-
-
-	
-
-
-	
-
-
-
 </body>
 </html>
