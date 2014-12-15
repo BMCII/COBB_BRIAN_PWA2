@@ -5,7 +5,7 @@
 //alert("hello");
 $(function() {
 
-    //=========================================== Drop down login  =======================================================//
+//=========================================== Drop down login  =======================================================//
 
 
     $('#login p')
@@ -17,7 +17,7 @@ $(function() {
         });
 
 
-    //================================================= toolTip  =========================================================//
+//================================================= toolTip  =========================================================//
 
     $('.masterToolTip')
         .hover(function() {
@@ -56,17 +56,17 @@ $(function() {
                 }); //select toolTip ans change css
         });
 
-    //============================================= End toolTip  =========================================================//
+//============================================= End toolTip  =========================================================//
 
-    //================================================= modal ============================================================//
+//================================================= modal ============================================================//
 
     $('.modalClick')
         .on('click', function(event) { //select modalClick and run function on click
-            event.preventDefault(); //prevent page from reloading
-            $('#overlay') //select id overlay
-                .fadeIn() //fade overlay in
-                .find('#modal') //find id modal
-                .fadeIn(); //fade modal in
+            event.preventDefault();    //prevent page from reloading
+            $('#overlay')              //select id overlay
+                .fadeIn()              //fade overlay in
+                .find('#modal')        //find id modal
+                .fadeIn();             //fade modal in
         });
 
     $('.close')
@@ -92,9 +92,9 @@ $(function() {
 
 
 
-    //============================================= End modal ============================================================//
+//============================================= End modal ============================================================//
 
-    //============================================== Tabbed Accordion ====================================================//
+//============================================== Tabbed Accordion ====================================================//
 
     $('#tabs p')
         .hide()
@@ -122,9 +122,9 @@ $(function() {
         .eq(0)
         .addClass('current');
 
-    //========================================== End Tabbed Accordion ====================================================//
+//========================================== End Tabbed Accordion ====================================================//
 
-    //================================================== login ===========================================================//
+//================================================== login ===========================================================//
 
     $('#signinButton')
         .click(function() {
@@ -163,11 +163,102 @@ $(function() {
             })
         });
 
-    //================================================= End Login ========================================================//
+//================================================= End Login ========================================================//
 
-    $('#wrapper')
-        .draggable();
+//================================================= Registration =====================================================//
 
+    $('#register').on('click', function(){
+//        alert("hey");
+       var firstname = $('#first').val(),
+           lastname = $('#last').val(),
+           username = $('#userName').val(),
+           email = $('#email').val(),
+           password = $('#password').val();
+        console.log(firstname + ' ' + lastname + ' ' + username + ' ' + password);
+
+        $.ajax({
+            url: 'xhr/register.php',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                firstname: firstname,
+                lastname: lastname,
+                username: username,
+                email: email,
+                password: password
+        },
+
+            success: function(response){
+                if(response.error){
+                    alert(response.error);
+                } else {
+                    window.location.assign('admin.html');
+                }
+            }
+        });
+    });
+
+//============================================= End Registration =====================================================//
+
+//============================================== Dynamic Buttons =====================================================//
+
+    //====== admin =====//
+
+    $('.projectsbtn').on('click',function(e){
+        e.preventDefault();
+        window.location.assign('projects.html')
+    });
+
+    $('').on('click',function(e){
+        e.preventDefault();
+        window.location.assign('.html')
+    });
+
+
+    //====== index =====//
+
+    $('').on('click',function(e){
+        e.preventDefault();
+        window.location.assign('.html')
+    });
+
+    $('').on('click',function(e){
+        e.preventDefault();
+        window.location.assign('.html')
+    });
+
+    $('').on('click',function(e){
+        e.preventDefault();
+        window.location.assign('.html')
+    });
+
+    //====== projects =====//
+
+    $('').on('click',function(e){
+        e.preventDefault();
+        window.location.assign('.html')
+    });
+
+    $('').on('click',function(e){
+        e.preventDefault();
+        window.location.assign('.html')
+    });
+
+    //====== register =====//
+
+    $('').on('click',function(e){
+        e.preventDefault();
+        window.location.assign('.html')
+    });
+
+    $('').on('click',function(e){
+        e.preventDefault();
+        window.location.assign('.html')
+    });
+
+//===========================================End Dynamic Buttons =====================================================//
+
+//================================================= User Name  =======================================================//
 
 
 
