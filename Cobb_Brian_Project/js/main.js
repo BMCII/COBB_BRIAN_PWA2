@@ -258,8 +258,79 @@ $(function() {
 
 //===========================================End Dynamic Buttons =====================================================//
 
-//================================================= User Name  =======================================================//
+//=========================================== User Name Display ======================================================//
 
+    $.getJSON("xhr/check_login.php", function(data){
+        console.log(data);
+        $.each(data, function(key, val){
+            console.log(val.first_name);
+            $(".userid").html("welcome User: " + val.first_name);
+        })
+    });
 
+//========================================End User Name Display ======================================================//
+
+//========================================== Add Projects ============================================================//
+
+    //====== project info =====//
+
+    $('#addButton').on('click', function() {
+
+        var projName = $('#projectName').val(),
+            projDesc = $('projectDescription').val(),
+            projDue = $('projectDueDate').val(),
+            status = $('input[name = "status"]:checked').prop("id");
+
+        $.ajax({
+            url: 'xhr/register.php',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                projectName: projName,
+                projectDescription: projDesc,
+                dueDate: projDue,
+                status: status
+            },
+            success: function (response) {
+                console.log('testing');
+
+                if (response.error) {
+                    alert(response.error);
+                } else {
+                    window.location.assign("projects.html");
+                }
+                ;
+            }
+        });
+    });
+
+    //====== get projects =====//
+
+    var projects = function(){
+
+        $.ajax({
+            url: 'xhr/get_projects.php',
+            type: 'get',
+            dataType: 'json',
+            success: function (response) {
+                if (response.error) {
+                    console.log(response.error);
+                } else {
+
+                    for(var i= 0, j=response.projects.length; i < j;i++){
+                        var result = response.projects[i];
+
+                        $(".projects").append(
+                            '<div style = "border:1px solid black>' +
+                                "<input class='projectid' type='hidden' value='" + result.id + "'>" + ""
+                        )
+                    }
+                }
+                ;
+            }
+        });
+    };
+
+//=======================================End Add Projects ============================================================//
 
 }); // end private scope
