@@ -322,14 +322,43 @@ $(function() {
 
                         $(".projects").append(
                             '<div style = "border:1px solid black>' +
-                                "<input class='projectid' type='hidden' value='" + result.id + "'>" + ""
-                        )
-                    }
+                                "<input class='projectid' type='hidden' value='" + result.id + "'>" +
+                                "Project Name: " + response.projectName + "<br>" +
+                                "Project Description: " + result.projectDescription + "<br>" +
+                                "Project Status: " + result.status + "<>br" +
+                                '<button class="deletebtn">Delete</button>' +
+                                '<button class="editbtn">Edit</button>' +
+                                '</div> <br>'
+                        );
+                    };
+                    $('.deletebtn').on('click', function(e){
+                        console.log('test delete');
+                        $.ajax({
+                            url: 'xhr/delete_project.php',
+                            data: {
+                                projectID: result.id
+                            },
+                            type: 'POST',
+                            dataType: 'json',
+                            success: function(response){
+                                console.log('test success');
+
+                                if(response.error){
+                                    alert(response.error);
+
+                                }else{
+                                    //console.log(result.id);
+                                    window.location.assign('projects.html')
+                                };
+                            }
+                        });
+                    });//end delete
                 }
-                ;
+
             }
-        });
-    };
+        })
+    }
+    projects();
 
 //=======================================End Add Projects ============================================================//
 
