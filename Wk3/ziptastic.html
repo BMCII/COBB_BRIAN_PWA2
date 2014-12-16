@@ -453,7 +453,7 @@ $(document).ready(function () {
 
 		if (zipCode.length === 5 && $.isNumeric(zipCode)) {     //if zip code length is strictly equal to 5 and a number
 			var requestURL = 'http://ziptasticapi.com/' + zipCode +'?callback=?'; //create var with api url
-			$.getJSON(requestURL, null, function(data){
+			$.getJSON(requestURL, null, function(data){ //
 				console.log(data);
 				
 				if (data.city) $('#city').val(data.city);
