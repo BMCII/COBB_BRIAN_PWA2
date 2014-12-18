@@ -336,5 +336,69 @@ $(function() {
     projects();
 
 //=======================================End Add Projects ============================================================//
+//======================================= Account Update =============================================================//
 
-}); // end private scope
+    var updateAcct = function(){
+        console.log('pulls user info');
+        $.ajax({
+            url: 'xhr/get_user.php',
+            type:'get',
+            dataType: 'json',
+            success: function(response){
+                if(response.error) {
+                    console.log(response.error);
+                }else{
+                    var updatefirstname = response.user.first_name;
+                    var updatelastname = response.user.last_name;
+                    var updateemail = response.user.email;
+                    //var retrievedNote = response.user.avatar
+                    $('#updatefirstname').val(updatefirstname);
+                    $('#updatelastname').val(updatelastname);
+                    $('#updateemail').val(updateemail);
+                    //$('#notes').text(retrievedNote);
+                };
+            }
+        });
+        $('#updateAcctBtn').on('click',function(e){
+            e.preventDefault();
+            var changedfirstname = $('#updatefirstname').val();
+            var changedlastname = $('#updatelastname').val();
+            var changedemail = $('#updateemail').val();
+            $.ajax({
+                url: 'xhr/update_user.php',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    first_name: changedfirstname,
+                    last_name: changedlastname,
+                    email: changedemail
+                },
+                success: function(response){
+                    if(response.error){
+                        console.log(response.error);
+                    }else{
+                        console.log('account updated');
+                    };
+                }
+            });
+        });
+    };
+
+    updateAcct();
+
+
+//======================================= Account Update =============================================================//
+//======================================= Date Picker ================================================================//
+
+
+        $( "#projectDueDate" ).datepicker();
+
+
+
+
+$( ".projects" ).sortable();
+$( ".projects" ).disableSelection();
+
+});
+
+ // end private scope
