@@ -390,14 +390,15 @@ $(function() {
 //======================================= Account Update =============================================================//
 //======================================= Date Picker ================================================================//
 
+   $( "#projectDueDate" ).datepicker();
 
-        $( "#projectDueDate" ).datepicker();
+//====================================End Date Picker ================================================================//
 
 
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
 
-
-$( ".projects" ).sortable();
-$( ".projects" ).disableSelection();
+    $( "#wrapper" ).draggable();
 
 });
 
