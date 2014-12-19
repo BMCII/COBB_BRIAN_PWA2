@@ -27,14 +27,18 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
 
 /*
 colors
+    #066380
     #fcf8ce
     #999865
-    #046380
+    #fdcc99
     #012e2f
+    #056380
 */
 
 /*======================= main styles ================================================================================*/
 body {
+
+    font-family:Tahoma,sans-serif;
     background-image:url(../images/logo.png);
     margin:0;
     background:#fcf8ce;
@@ -70,7 +74,9 @@ h1 {
     width:400px;
     margin:0 auto;
     padding:20px;
-    text-align:center
+    text-align:center;
+    float: left;
+
 }
 
 .buttonstyle {
@@ -139,7 +145,7 @@ textarea:focus,input:focus,button:focus {
     padding:10px 20px;
     text-decoration:none;
     border:1px solid #000;
-    margin:0 auto;
+    margin:20 auto;
     display:block
 }
 
@@ -156,6 +162,12 @@ textarea:focus,input:focus,button:focus {
 
 #join:active {
     box-shadow:none
+}
+
+header image{
+    position: relative;
+    top: 18px;
+    left: 10px;
 }
 
 /*======================== Tool Tip ==================================================================================*/
@@ -269,7 +281,7 @@ input[type=radio]:checked + img {
     border:2px solid red
 }
 
-/*=====================End Modal =====================================================================================*/
+/*==================== End Modal =====================================================================================*/
 /*===================== Tabs =========================================================================================*/
 #tabs {
     background-color:#999;
@@ -541,3 +553,15 @@ html[xmlns] #menu-bar {
 .projects {
     margin-top: 20px
 }
+
+ul{
+    clear: left;
+    margin: 0 auto;
+    color:#fcf8ce;
+}
+
+/*======================== Index  ====================================================================================*/
+
+
+
+/*====================== End Index ===================================================================================*/
