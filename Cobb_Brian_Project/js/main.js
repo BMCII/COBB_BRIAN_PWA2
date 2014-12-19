@@ -195,10 +195,10 @@ $(function() {
     //
     //    //====== index =====//
     //
-    //    $('').on('click',function(e){
-    //        e.preventDefault();
-    //        window.location.assign('.html')
-    //    });
+        $('.dashboard').on('click',function(e){
+            e.preventDefault();
+            window.location.assign('admin.html')
+        });
     //
     //    $('').on('click',function(e){
     //        e.preventDefault();

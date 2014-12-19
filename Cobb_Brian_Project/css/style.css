@@ -22,9 +22,6 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                               `b  `       '  d'
                                `             '
 
-*/
-
-/*
 colors
     #066380
     #fcf8ce
@@ -254,7 +251,6 @@ form input {
 
 header {
     width:960px;
-    overflow:auto;
     padding:10px
 }
 
@@ -291,19 +287,21 @@ input[type=radio]:checked + img {
 /*==================== End Modal =====================================================================================*/
 /*===================== Tabs =========================================================================================*/
 #tabs {
-    background-color:#999;
+    background:#999865;
     width:600px;
     height:150px;
-    padding:20px
+    padding:20px;
+    border-radius: 10px;
 }
 
 #tabs-nav {
     width:600px;
     height:75px;
     padding:20px;
-    background-color:#999;
+    background:#999865;
     text-decoration:none;
-    list-style-type:none
+    list-style-type:none;
+    border-radius: 10px;
 }
 
 #tabs-nav li {
@@ -364,14 +362,15 @@ nav#login {
 #login-form {
     position:absolute;
     z-index:10000;
-    background-color:#fff;
     border:solid 1px #dcdcdc;
     padding:12px;
     width:300px;
-    box-shadow:1px 1px 4px #dcdcdc;
     top:40px;
     left:0;
-    display:none
+    display:none;
+    background:#999865;
+    box-shadow:10px 20px 10px #363636;
+    border-radius:10px;
 }
 
 #login-form label {
@@ -543,8 +542,8 @@ nav#login {
 
 ul{
     clear: left;
-
     color:#fcf8ce;
+    font-size: 1.5em;
 }
 
 /*======================== Index  ====================================================================================*/
