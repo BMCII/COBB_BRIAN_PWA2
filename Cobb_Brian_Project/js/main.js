@@ -225,10 +225,10 @@ $(function() {
     //
     //    //====== register =====//
     //
-    //    $('').on('click',function(e){
-    //        e.preventDefault();
-    //        window.location.assign('.html')
-    //    });
+        $('#backToLogin').on('click',function(e){
+            e.preventDefault();
+            window.location.assign('index.html')
+        });
     //
     //    $('').on('click',function(e){
     //        e.preventDefault();
@@ -243,7 +243,7 @@ $(function() {
         $.each(data, function(key, val) {
             console.log(val.first_name);
             $(".userid")
-                .html("welcome User: " + val.first_name);
+                .html("Welcome User: " + val.first_name);
         })
     });
 
@@ -296,13 +296,13 @@ $(function() {
                     for (var i = 0, j = response.projects.length; i < j; i++) {
                          var result = response.projects[i];
                         $(".projects")
-                            .append('<div style = "border:1px solid black">' +
+                            .append('<div class="projectbx">' +
                                 "<input class='projectid' type='hidden' value='" + result.id +
                                 "'>" + "Project Name: " + result.projectName + "<br>" +
                                 "Project Description: " + result.projectDescription + "<br>" +
                                 "Project Status: " + result.status + "<br>" +
-                                '<button class="deletebtn">Delete</button>' +
-                                '<button class="editbtn">Edit</button>' + '</div><br>');
+                                '<button class="deletebtn buttonstyle">Delete</button>' +
+                                '<button class="editbtn buttonstyle">Edit</button>'  + '<div class = "clear">' + '</div>' + '</div>');
                     };
                     $('.deletebtn')
                         .on('click', function(e) {

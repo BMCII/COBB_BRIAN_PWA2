@@ -1,6 +1,5 @@
 /*
 
-
                                  .                                                      .
         .n                   .                 .                  n.
   .   .dP                  dP                   9b                 9b.    .
@@ -39,7 +38,6 @@ colors
 body {
 
     font-family:Tahoma,sans-serif;
-    background-image:url(../images/logo.png);
     margin:0;
     background:#fcf8ce;
     /* Old browsers */
@@ -65,7 +63,7 @@ body {
     margin:150px auto;
     border:2px #012e2f solid;
     border-radius:15px;
-    box-shadow:0 5px 3px #363636;
+    box-shadow:10px 20px 10px #363636;
     padding:15px
 }
 
@@ -74,9 +72,10 @@ h1 {
     width:400px;
     margin:0 auto;
     padding:20px;
-    text-align:center;
-    float: left;
-
+    position: absolute;
+    top: 18px;
+    left: 300px;
+    text-align: center;
 }
 
 .buttonstyle {
@@ -145,8 +144,10 @@ textarea:focus,input:focus,button:focus {
     padding:10px 20px;
     text-decoration:none;
     border:1px solid #000;
-    margin:20 auto;
-    display:block
+    margin:0 auto;
+    display:block;
+    float: right;
+
 }
 
 #join:hover {
@@ -166,11 +167,12 @@ textarea:focus,input:focus,button:focus {
 
 header image{
     position: relative;
-    top: 18px;
+    top: 0;
     left: 10px;
 }
 
 /*======================== Tool Tip ==================================================================================*/
+
 .toolTip {
     display:none;
     position:absolute;
@@ -196,7 +198,7 @@ header image{
 }
 
 #modal {
-    width:350px;
+    width:400px;
     background:#999865;
     box-shadow:0 0 10px #000;
     border-radius:10px;
@@ -204,7 +206,7 @@ header image{
     position:relative;
     top:15%;
     margin-top:0;
-    margin-left:500px;
+    margin-left:400px;
     z-index:1001;
     display:none
 }
@@ -258,8 +260,13 @@ header {
 
 .userid {
     padding-top:10px;
-    width:100px;
-    float:left
+    width:250px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    font-family:Tahoma,sans-serif;
+    color:#fcf8ce;
+    font-size: 1.5em;
 }
 
 .logoutbox {
@@ -529,26 +536,6 @@ nav#login {
     -moz-border-radius-bottomright:10px
 }
 
-#menu-bar:after {
-    content:".";
-    display:block;
-    clear:both;
-    visibility:hidden;
-    line-height:0;
-    height:0
-}
-
-#menu-bar {
-    display:inline-block
-}
-
-html[xmlns] #menu-bar {
-    display:block
-}
-
-* html #menu-bar {
-    height:1%
-}
 
 .projects {
     margin-top: 20px
@@ -556,12 +543,26 @@ html[xmlns] #menu-bar {
 
 ul{
     clear: left;
-    margin: 0 auto;
+
     color:#fcf8ce;
 }
 
 /*======================== Index  ====================================================================================*/
 
-
+header + ul {
+    width: 300px;
+    margin: 30px auto;
+}
 
 /*====================== End Index ===================================================================================*/
+
+fieldset{
+    width:200px;
+    margin-left: 350px;
+}
+
+.projectbx{
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
